@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f4f6f9;
+    }
+    .table-container {
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(133, 74, 74, 0.1);
+    }
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+    .side-panel {
+      margin-top: 20px;
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(168, 152, 152, 0.1);
+    }
+    .side-panel h5 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #007bff;
+    }
+    .table thead {
+      background-color: #e0bd10;
+      color: white;
+    }
+    .table tbody tr:hover {
+      background-color: #f1f8ff;
+      transition: background-color 0.3s;
+    }
+    .pagination .page-link {
+      color: #007bff;
+    }
+    .pagination .page-item.active .page-link {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    {% include "src/navbar.html" %}
+  </header>
+  <div class="container">
+    <h2 class="mt-4">Danh sách bài tập</h2>
+    <div class="row">
+      <div class="col-lg-9 table-container">
+        <form method="GET" action="/exercise">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Tìm bài tập..." name="search_query" value="{{ search_query }}">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit">Tìm kiếm</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="scoreFilter">Tìm theo điểm</label>
+            <input type="range" class="form-control-range" id="scoreFilter" name="score" min="0" max="50" value="{{ score_filter }}">
+          </div>
+        </form>
+        
+        <table class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Đề bài</th>
+              <th scope="col">Điểm</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if exercises %}
+              {% for exercise in exercises %}
+                <tr>
+                  <td>{{ exercise['id'] }}</td>
+                  <!-- Tạo liên kết đến trang chi tiết bài toán -->
+                  <td>
+                    <a href="{{ url_for('problem_detail', problem_id=exercise['id']) }}">
+                      {{ exercise['title'] }}
+                    </a>
+                  </td>
+                  <td>{{ exercise['points'] }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="3" class="text-center">Không tìm thấy bài tập nào</td>
+              </tr>
+            {% endif %}
+
+          </tbody>
+          
+        </table>
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">»</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="side-panel">
+          <h5>Những bài tập nổi bật</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">COCI '12 Contest 3 #3 Malcolm</a></li>
+            <li><a href="#">CCC '23 J3 - Special Event</a></li>
+            <li><a href="#">String Finding</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<footer>
+  {% include "src/footer.html" %}
+</footer>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles/user.css">
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header, main, footer {
+    margin: 0;
+    padding: 0;
+}
+        /* Avatar styling */
+        .avatar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #007bff;
+        }
+
+        /* Profile information styling */
+        .info h1 {
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
+        .info p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Calendar styling */
+        .calendar {
+            display: grid;
+            grid-template-rows: repeat(7, 1fr); /* 7 hàng đại diện cho các ngày trong tuần */
+            grid-auto-flow: column; /* Tự động thêm cột khi cần */
+            gap: 5px;
+            padding: 10px;
+            overflow-x: auto; /* Cho phép cuộn ngang nếu cần */
+            max-width: 100%; /* Giữ calendar trong vùng nhìn thấy */
+        }
+        .calendar .day {
+            width: 20px;
+            height: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+        .calendar .day.green {
+            background-color: #28a745;
+        }
+        .calendar .day:hover {
+            background-color: #007bff;
+        }
+
+        /* Calendar header styling */
+        .header1 {
+            display: grid;
+            grid-template-columns: repeat(52, 1fr); /* 52 cột cho số tuần */
+            gap: 5px;
+            margin-bottom: 10px;
+            overflow-x: auto; /* Cuộn ngang cho tiêu đề */
+            text-align: center;
+        }
+        .header1 span {
+            font-size: 0.8rem;
+        }
+
+        /* Main content offset from navbar */
+        main {
+            margin-top: 100px; /* Đẩy xuống để không bị navbar che */
+        }
+    </style>
+</head>
+<!-- Navbar -->
+<header>
+    <div class="container-fluid">
+        {% include "src/navbar.html" %}
+    </div>
+</header>
+
+<body>
+    
+
+    <!-- Main content -->
+    <main class="container mt-5">
+        <section class="profile text-center">
+            <div class="avatar mb-3">
+                <img src="{{ session['avatar_url'] if session['avatar_url'] else 'avatar.png' }}" alt="Avatar">
+            </div>
+            <div class="info">
+                <h1>{{ user.username }}</h1>
+                <p>⭐ Rating: <span>{{ user.rating if user.rating else '-' }}</span></p>
+                <p>✔️ Exercises: <span>{{ user.total_exercises }}</span></p>
+                <p>🏆 Points: <span>{{ user.total_points }}</span></p>
+                <p>🌐 Rank Points: <span>{{ user.rank_points }}</span></p>
+                <p class="text-muted">You haven’t shared any additional information yet.</p>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section class="submission-summary mt-5">
+            <h2 class="text-center">{{ submissions|length }} submissions in the past year</h2>
+            <div class="header1">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+            </div>
+            <div class="calendar">
+                {% for day in range(1, 367) %}
+                    {% set current_date = (datetime.now().replace(month=1, day=1) + timedelta(days=day-1)).strftime('%Y-%m-%d') %}
+                    <div class="day {% if submission_calendar.get(current_date) %}green{% endif %}"></div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+  
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+  <!-- Footer -->
+  <footer class="mt-5">
+    {% include "src/footer.html" %}
+</footer>
+</html>

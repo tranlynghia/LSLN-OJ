@@ -1,0 +1,130 @@
+/* Đặt lại CSS cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+/* header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #007bff;
+} */
+
+/* Phần thông tin hồ sơ */
+.profile {
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile .avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.profile .info {
+    margin-left: 1.5rem;
+}
+
+.profile .info h1 {
+    margin-bottom: 0.5rem;
+}
+
+.profile .info p {
+    margin: 0.3rem 0;
+}
+
+/* Bảng thống kê nộp bài */
+.submission-summary {
+    margin: 2rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submission-summary h2 {
+    margin-bottom: 1rem;
+}
+
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.day {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.day.green {
+    background-color: #28a745;
+}
+
+.day.light-green {
+    background-color: #85e085;
+}
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 cột, tương ứng với 7 ngày trong tuần */
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.calendar .header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Hiển thị thứ trong tuần */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.day {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #e0e0e0; /* Màu nền mặc định */
+}
+
+.day.green {
+    background-color: #4caf50; /* Màu xanh cho ngày có bài nộp */
+}

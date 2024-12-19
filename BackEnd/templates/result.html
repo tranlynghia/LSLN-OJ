@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kết quả chấm bài</title>
+  <!-- Thêm liên kết tới Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJr4ZJ9z2Xy24oPzV6dj5mQm5Fv5a5Xhjeec7Xy9+pnHo2NfXr0FqkBvG9n" crossorigin="anonymous">
+  <style>
+    .result-header {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .result-detail {
+      font-size: 1.1rem;
+    }
+    .result-summary {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: green;
+    }
+    .test-result {
+      font-size: 1rem;
+    }
+    .test-status {
+      font-weight: bold;
+    }
+    .accepted {
+      color: green;
+    }
+    .rejected {
+      color: red;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="result-header">Bài nộp của tranlynghia cho bài Max 3 số</h1>
+        
+        <div class="row my-3">
+          <div class="col-md-6">
+            <h4 class="result-detail">Mã nguồn</h4>
+          </div>
+          <div class="col-md-6 text-end">
+            <h4 class="result-detail">Kết quả chấm</h4>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col-12">
+            <h4 class="result-summary">Tổng cộng: 100.0/100</h4>
+            <p class="result-summary">Điểm: 5.0/5</p>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Test Case</th>
+                <th>Điểm</th>
+                <th>Thời gian</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Test #1</td>
+                <td>1/1</td>
+                <td>44 ms</td>
+                <td class="accepted">Accepted</td>
+              </tr>
+              <tr>
+                <td>Test #2</td>
+                <td>1/1</td>
+                <td>45 ms</td>
+                <td class="accepted">Accepted</td>
+              </tr>
+              <tr>
+                <td>Test #3</td>
+                <td>1/1</td>
+                <td>44 ms</td>
+                <td class="accepted">Accepted</td>
+              </tr>
+              <tr>
+                <td>Test #4</td>
+                <td>1/1</td>
+                <td>44 ms</td>
+                <td class="accepted">Accepted</td>
+              </tr>
+              <tr>
+                <td>Test #5</td>
+                <td>1/1</td>
+                <td>44 ms</td>
+                <td class="accepted">Accepted</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Thêm liên kết tới Bootstrap JS (nếu cần) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0VfU1p+1w9g9E1U7BEX7p2l0xIWY3HffmF9DE5SxtcuHI+g5" crossorigin="anonymous"></script>
+</body>
+</html>

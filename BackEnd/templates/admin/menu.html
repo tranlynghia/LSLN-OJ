@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn Nhiệm Vụ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 30px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card-title {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<header>
+    {%include "src/admin_navbar.html" %}
+</header>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Chọn Nhiệm Vụ</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Thêm Bài Viết</h5>
+                        <p class="card-text">Tạo bài viết mới cho trang web của bạn, bao gồm nội dung và hình ảnh.</p>
+                        <a href="/admin/create_post" class="btn btn-custom w-100">Chọn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Chỉnh Sửa Bài Toán</h5>
+                        <p class="card-text">Chỉnh sửa thông tin bài toán đã có, bao gồm mô tả, định dạng input/output.</p>
+                        <a href="/admin/dashboard" class="btn btn-custom w-100">Chọn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Thêm Bài Toán</h5>
+                        <p class="card-text">Tạo mới bài toán cho người dùng, bao gồm tải lên file JSON cho điểm và ví dụ.</p>
+                        <a href="/add-problem" class="btn btn-custom w-100">Chọn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tải Lên và Xử Lý File</h5>
+                        <p class="card-text">Giải nén và xử lý file RAR, tạo JSON cho các bài toán tương ứng.</p>
+                        <a href="/change" class="btn btn-custom w-100">Chọn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Quản Lý Bài Viết</h5>
+                        <p class="card-text">Xem, chỉnh sửa hoặc xóa bài viết hiện có.</p>
+                        <a href="/admin/dashboard" class="btn btn-custom w-100">Chọn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Thêm kì thi</h5>
+                        <p class="card-text">Tạo kì thi cho các contest mong muốn</p>
+                        <a href="/admin/add_exam" class="btn btn-custom w-100">Chọn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<footer>
+    {% include "src/admin_footer.html" %}
+</footer>
+</html>

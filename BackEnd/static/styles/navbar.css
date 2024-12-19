@@ -1,0 +1,42 @@
+.navbar {
+    background-color: #3e4551; /* Màu nền header */
+    color: white;
+}
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+.navbar-nav .nav-link {
+    color: white;
+    border: none;
+}
+.navbar-nav .nav-link:hover {
+    color: #ffc107; /* Màu vàng khi hover */
+}
+.form-control {
+    border-radius: 20px; /* Bo góc thanh tìm kiếm */
+}
+.nav-tabs {
+    background-color: #343a40; /* Màu nền cho các tab */
+}
+.nav-tabs .nav-link {
+    color: white;
+}
+.nav-tabs .nav-link.active {
+    background-color: white; /* Màu nền cho tab được chọn */
+    color: #343a40; /* Màu chữ cho tab được chọn */
+    border: 1px solid #343a40; /* Đường viền cho tab được chọn */
+}
+.nav-tabs .nav-link:hover {
+    color: #ffc107; /* Màu chữ khi hover */
+}
+.logo-img {
+    height: 80px; /* Tăng kích thước chiều cao */
+    width: auto;  /* Giữ tỉ lệ khung hình */
+    transition: transform 0.3s ease; /* Hiệu ứng hover */
+}
+
+.logo-img:hover {
+    transform: scale(1.1); /* Tăng 10% kích thước khi hover */
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa bài viết</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        h2 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        img {
+            display: block;
+            margin-top: 15px;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-secondary {
+            margin-top: 15px;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+
+        .btn-secondary:hover {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .form-note {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<header>
+    {% include "src/admin_navbar.html" %}
+</header>
+<body>
+    <div class="container">
+        <h2>Chỉnh Sửa Bài Viết</h2>
+
+        <!-- Form chỉnh sửa bài viết -->
+        <form action="{{ url_for('edit_post', post_id=post['id']) }}" method="POST" enctype="multipart/form-data">
+            <!-- Tiêu đề bài viết -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Tiêu đề</label>
+                <input type="text" id="title" name="title" class="form-control" value="{{ post['title'] }}" required>
+            </div>
+
+            <!-- Nội dung bài viết -->
+            <div class="mb-3">
+                <label for="content" class="form-label">Nội dung</label>
+                <textarea id="content" name="content" class="form-control" rows="5" required>{{ post['content'] }}</textarea>
+            </div>
+
+            <!-- Ngày đăng -->
+            <div class="mb-3">
+                <label for="post_date" class="form-label">Ngày đăng</label>
+                <input type="datetime-local" id="post_date" name="post_date" class="form-control" value="{{ post['post_date'] }}" required>
+            </div>
+
+            <!-- Chọn ảnh -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Chọn ảnh (nếu có)</label>
+                <input type="file" id="image" name="image" class="form-control">
+                {% if post['image_url'] %}
+                    <p class="form-note">Ảnh hiện tại:</p>
+                    <img src="{{ url_for('static', filename='uploads/' + post['image_url']) }}" alt="Ảnh hiện tại">
+                {% endif %}
+            </div>
+
+            <!-- Nút lưu thay đổi -->
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Quay Lại</a>
+            </div>
+        </form>
+    </div>
+</body>
+<footer>
+    {%include "src/admin_footer.html" %}
+</footer>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Footer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            background-color: rgb(62, 62, 62);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding-top: 20px;
+        }
+        footer h5 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 5px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            background: white;
+            color: #2575fc;
+            border-color: white;
+        }
+        .cta-section {
+            padding: 20px 0;
+            text-align: center;
+        }
+        .cta-section button {
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .cta-section button:hover {
+            background: white;
+            color: #2575fc;
+        }
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <footer>
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>About Us</h5>
+                    <p>We are committed to providing the best platform for coders to enhance their skills, compete globally, and connect with a vibrant community of developers.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Exams</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 text-center">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <p>Want to join our community?</p>
+            <button onclick="window.location.href='/login'">Sign Up Now</button>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Online Judge Platform | Designed with <i class="fas fa-heart text-danger"></i> by LSLN</p>
+        </div>
+    </footer>
+
+</body>
+</html>

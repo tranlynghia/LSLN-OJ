@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Kỳ Thi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .exam-card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .exam-card h5 {
+            font-weight: bold;
+        }
+
+        .exam-card p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .btn-start {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-start:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .badge-active {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .badge-inactive {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .text-muted {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<header>
+    {% include "src/navbar.html" %}
+</header>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Danh Sách Kỳ Thi</h2>
+
+        <!-- Danh sách kỳ thi -->
+        <div class="row">
+            {% for exam in exams %}
+            <div class="col-md-6">
+                <div class="card exam-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ exam['name'] }}</h5>
+                        <p class="card-text">Thời gian: 
+                            {{ exam['start_time'] }} - {{ exam['end_time'] }}
+                        </p>
+
+                        {% if exam['is_active'] %}
+                        <span class="badge badge-active">Đang mở</span>
+                        {% else %}
+                        <span class="badge badge-inactive">Đã kết thúc</span>
+                        {% endif %}
+
+                        <p class="text-muted">Số bài toán: {{ exam['problem_count'] }}</p>
+
+                        {% if exam['is_active'] %}
+                        <a href="/exam/{{ exam['id'] }}" class="btn btn-start w-100">Vào Làm Bài</a>
+                        {% else %}
+                        <button class="btn btn-secondary w-100" disabled>Không khả dụng</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<footer>
+    {% include "src/footer.html" %}
+</footer>
+</html>
